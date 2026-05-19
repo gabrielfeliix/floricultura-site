@@ -1010,15 +1010,17 @@ img {
     position: relative;
     width: 100%;
     z-index: 1;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
 .map-frame-wrapper::before {
     content: '';
     position: absolute;
-    top: 1rem;
-    left: 1rem;
-    width: calc(100% - 1rem);
-    height: calc(100% - 1rem);
+    top: 1.5rem;
+    left: 1.5rem;
+    width: calc(100% - 1.5rem);
+    height: calc(100% - 1.5rem);
     background-color: var(--clr-accent);
     z-index: 1;
     border-radius: 4px;
@@ -1055,7 +1057,8 @@ img {
     .map-frame-wrapper {
         max-width: 600px;
         margin: 0 auto;
-        padding-right: 1rem; /* prevent offset wrapper overlap issues */
+        padding-right: 1.5rem;
+        padding-bottom: 1.5rem;
     }
 }
 
