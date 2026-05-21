@@ -258,8 +258,8 @@ img {
 }
 
 .logo-img {
-    height: 180px;
-    /* Generous, gorgeous size for maximum legibility and presence */
+    height: 110px;
+    /* Balanced, elegant size for premium aesthetic and good visual hierarchy */
     width: auto;
     object-fit: contain;
     transition: var(--transition);
@@ -313,7 +313,7 @@ img {
     }
 
     .logo-img {
-        height: 120px;
+        height: 80px;
         /* Balanced size on mobile */
     }
 
