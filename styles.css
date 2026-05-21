@@ -489,6 +489,7 @@ img {
 .hero-content {
     max-width: 500px;
     min-width: 0; /* Fix CSS Grid overflow: prevent items expanding beyond 1fr */
+    overflow: hidden; /* Prevent ticker from escaping the container */
 }
 
 .hero-subtitle {
@@ -521,10 +522,12 @@ img {
     display: none; /* Hidden on desktop */
     overflow: hidden;
     width: 100%;
+    max-width: 100%; /* Never exceed parent */
     margin: 1.5rem 0 2rem 0;
     border-top: 1.5px solid rgba(212, 175, 55, 0.12);
     border-bottom: 1.5px solid rgba(212, 175, 55, 0.12);
     padding: 0.75rem 0;
+    box-sizing: border-box;
 }
 
 .ticker-track {
@@ -598,31 +601,47 @@ img {
         text-align: center;
         gap: 2rem;
         padding-top: 2.5rem;
+        overflow: hidden; /* Prevent any child from escaping */
     }
 
     .hero {
         padding-top: 1rem;
         min-height: auto;
+        overflow: hidden;
     }
 
     .hero-content {
         margin: 0 auto;
         text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        max-width: 100%; /* Use full grid cell width */
+        width: 100%;
+        overflow: hidden; /* CRITICAL: contain the ticker */
+        box-sizing: border-box;
     }
 
     .hero-title {
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-break: break-word;
     }
 
     .hero-text {
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+        max-width: 100%;
+    }
+
+    /* Center the CTA button on mobile */
+    .hero-content .btn-primary {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+        width: fit-content;
+        max-width: 100%;
     }
 
     .hero-image-wrapper {
@@ -636,16 +655,21 @@ img {
 
     .hero-ticker {
         display: block;
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
     }
 }
 
 @media (max-width: 576px) {
     .hero {
         padding-top: 0.5rem;
+        overflow: hidden;
     }
 
     .hero-container {
         padding-top: 1.5rem;
+        overflow: hidden;
     }
 
     .hero-title {
@@ -653,6 +677,7 @@ img {
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+        max-width: 100%;
     }
 
     .hero-text {
@@ -668,8 +693,11 @@ img {
         box-shadow: none;
     }
 
-    .btn-primary {
-        width: 100%;
+    .hero-content .btn-primary {
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+        max-width: 100%;
         text-align: center;
         padding: 1rem 1.5rem;
     }
@@ -1728,11 +1756,19 @@ img {
     /* Hero */
     .hero {
         padding-top: 0;
+        overflow: hidden;
     }
 
     .hero-container {
         padding-top: 1rem;
         gap: 1.5rem;
+        overflow: hidden;
+    }
+
+    .hero-content {
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
     }
 
     .hero-title {
@@ -1741,6 +1777,7 @@ img {
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+        max-width: 100%;
     }
 
     .hero-text {
@@ -1751,6 +1788,15 @@ img {
         margin-right: auto;
     }
 
+    .hero-content .btn-primary {
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+        max-width: 100%;
+        text-align: center;
+        padding: 1rem 1.5rem;
+    }
+
     .hero-image-wrapper {
         height: 40vh;
         margin-top: 0.5rem;
@@ -1758,6 +1804,9 @@ img {
 
     .hero-ticker {
         margin: 1rem 0 1.5rem 0;
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
     }
 
     .ticker-items span:not(.ticker-dot) {
