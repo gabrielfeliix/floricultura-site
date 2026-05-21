@@ -48,6 +48,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
@@ -562,6 +563,7 @@ img {
     width: 100%;
     /* Soft shadow for depth moved to the wrapper to prevent clipping */
     box-shadow: -20px 20px 0px var(--clr-bg-secondary);
+    max-width: 100%;
 }
 
 .hero-image {
@@ -629,6 +631,17 @@ img {
     .hero-text {
         font-size: 0.95rem;
         margin-bottom: 2rem;
+        max-width: 100%;
+    }
+
+    .hero-image-wrapper {
+        box-shadow: none;
+    }
+
+    .btn-primary {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 1.5rem;
     }
 }
 
