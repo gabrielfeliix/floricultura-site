@@ -72,10 +72,14 @@ h6 {
     color: var(--clr-text-dark);
 }
 
-a {
+a,
+button {
     text-decoration: none;
     color: inherit;
     transition: var(--transition);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 img {
@@ -312,22 +316,24 @@ img {
 
     .logo {
         padding: 0;
-        margin: 0;
+        margin: 0 auto;
         background: transparent;
         border: none;
         box-shadow: none;
         position: relative;
         z-index: 110;
+        display: inline-flex;
     }
 
     .logo-img {
-        height: 75px;
-        /* Balanced size on mobile */
+        height: 95px;
+        /* Larger size on mobile */
     }
 
     .nav-container {
+        position: relative;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         width: 100%;
         padding: 0 5%;
@@ -350,6 +356,10 @@ img {
         cursor: pointer;
         padding: 0;
         z-index: 110;
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .nav-toggle span {
@@ -497,6 +507,55 @@ img {
     max-width: 400px;
 }
 
+/* --- Hero Ticker (Running Text) --- */
+.hero-ticker {
+    display: none; /* Hidden on desktop */
+    overflow: hidden;
+    width: 100%;
+    margin: 1.5rem 0 2rem 0;
+    border-top: 1.5px solid rgba(212, 175, 55, 0.12);
+    border-bottom: 1.5px solid rgba(212, 175, 55, 0.12);
+    padding: 0.75rem 0;
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker-animation 50s linear infinite;
+}
+
+.ticker-items {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.ticker-items span:not(.ticker-dot) {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--clr-accent); /* Elegant botanical green */
+    font-weight: 600;
+}
+
+.ticker-dot {
+    margin: 0 1.25rem;
+    color: var(--clr-primary); /* Gold dot separator */
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+@keyframes ticker-animation {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
 .hero-image-wrapper {
     position: relative;
     height: 80vh;
@@ -547,6 +606,10 @@ img {
 
     .decorative-element {
         display: none;
+    }
+
+    .hero-ticker {
+        display: flex;
     }
 }
 
