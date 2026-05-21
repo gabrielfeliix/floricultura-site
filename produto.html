@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto | Floricultura Recife</title>
+    <meta name="description"
+        content="Detalhes e descrição do arranjo de flores selecionadas na Floricultura Recife. Atendemos com entregas 24 horas!">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Floricultura Recife Logo" class="logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="index.html#produtos">Produtos</a>
+                <a href="index.html#essencia">Nossa Essência</a>
+                <a href="index.html#depoimentos">Depoimentos</a>
+                <a href="index.html#contato" class="btn-outline">Fale Conosco</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <main class="product-detail-page">
+        <div class="container">
+            <!-- Back Button -->
+            <div class="back-link-wrapper animate-fade-in in-view">
+                <a href="index.html#produtos" class="back-link">
+                    <span class="arrow">←</span> Voltar para a página inicial
+                </a>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-detail-grid">
+                <!-- Product Left: Image -->
+                <div class="product-detail-image-wrapper animate-fade-in in-view">
+                    <div class="product-detail-image-frame">
+                        <img id="product-img" src="images/bouquet_anniversary.png" alt="Arranjo de Flores"
+                            class="product-detail-img">
+                    </div>
+                </div>
+
+                <!-- Product Right: Info -->
+                <div class="product-detail-info animate-fade-up in-view">
+                    <span class="product-category">Coleção Premium &bull; Floricultura Recife</span>
+                    <h1 id="product-title" class="product-detail-title">Buquê Aniversário</h1>
+                    <div class="product-divider"></div>
+                    <p id="product-desc" class="product-detail-description">
+                        O Buquê Aniversário é um presente encantador para celebrar o dia especial de alguém querido.
+                        Este buquê apresenta rosas vermelhas, densamente arranjadas e envoltas em um tecido de malha de
+                        cor clara, possivelmente branco ou creme. As rosas exibem pétalas frescas e vibrantes, com um
+                        gradiente de vermelho intenso e folhas verdes entre as flores. A elegante apresentação inclui
+                        uma fita rosada que arremata este belo arranjo com sofisticação.
+                    </p>
+
+                    <div class="product-actions">
+                        <a id="buy-now-btn"
+                            href="https://wa.me/5581999999999?text=Olá! Gostaria de comprar o Buquê Aniversário."
+                            target="_blank" rel="noopener" class="btn-primary product-buy-btn">
+                            Compre Aqui
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Map Section -->
+    <section id="visita" class="section map-section">
+        <div class="container map-container animate-fade-up">
+            <div class="map-info">
+                <p class="section-subtitle">Nossa Boutique</p>
+                <h2 class="section-title">Venha nos Visitar</h2>
+                <p class="map-desc">Experimente a beleza das nossas composições florais de perto. Criamos um espaço
+                    acolhedor no coração de Boa Viagem para você escolher seus arranjos com tranquilidade.</p>
+
+                <div class="map-details">
+                    <div class="detail-item">
+                        <span class="detail-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                width="20" height="20">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                        </span>
+                        <div>
+                            <strong>Endereço</strong>
+                            <p>R. Agenor Lopes, 212 - Boa Viagem, Recife - PE, 51021-110</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                width="20" height="20">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                        </span>
+                        <div>
+                            <strong>Horário de Funcionamento</strong>
+                            <p>Segunda a Sábado: 8h às 19h | Domingo: 8h às 13h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://maps.google.com/?q=Floricultura+Recife+R.+Agenor+Lopes+212+Recife" target="_blank"
+                    rel="noopener" class="btn btn-primary map-btn">
+                    Como Chegar <span>↗</span>
+                </a>
+            </div>
+
+            <div class="map-frame-wrapper">
+                <div class="map-frame">
+                    <iframe
+                        src="https://maps.google.com/maps?q=Floricultura%20Recife%20R.%20Agenor%20Lopes%20212%20Recife&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>Floricultura Recife</h3>
+                    <p>Entregamos mais do que flores, levamos carinho e alegria em cada buquê, garantindo sua plena
+                        satisfação.</p>
+                </div>
+
+                <div class="footer-links-group" id="contato">
+                    <span class="footer-links-title">Contato & Redes</span>
+                    <div class="footer-social-pills">
+                        <a href="tel:81999999999" class="footer-contact-pill highlight" aria-label="Telefone">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            <span>(81) 99999-9999</span>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-contact-pill"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-contact-pill"
+                            aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Floricultura Recife. Todos os direitos reservados.</p>
+                <p class="developer-credit">Desenvolvido por <a href="https://www.linkedin.com/in/gfelix-developer"
+                        target="_blank" rel="noopener">Felix Dev</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dynamic Loader Script -->
+    <script>
+        const products = {
+            "buque-aniversario": {
+                title: "Buquê Aniversário",
+                image: "images/bouquet_anniversary.png",
+                description: "O Buquê Aniversário é um presente encantador para celebrar o dia especial de alguém querido. Este buquê apresenta rosas vermelhas, densamente arranjadas e envoltas em um tecido de malha de cor clara, possivelmente branco ou creme. As rosas exibem pétalas frescas e vibrantes, com um gradiente de vermelho intenso e folhas verdes entre as flores. A elegante apresentação inclui uma fita rosada que arremata este belo arranjo com sofisticação."
+            },
+            "buque-mix-alegria": {
+                title: "Buquê Mix de Alegria",
+                image: "images/bouquet_joy.png",
+                description: "Este lindo buquê é composto por vibrantes girassóis e elegantes rosas vermelhas, adornado com delicadas flores de gipsofila. Ideal para presentear em ocasiões especiais, ele transmite sentimentos de amor e felicidade, proporcionando um toque de alegria e sofisticação ao ambiente. Cada detalhe foi cuidadosamente selecionado para criar uma composição harmoniosa e encantadora, perfeita para surpreender quem você ama."
+            },
+            "buque-mix-felicidade": {
+                title: "Buquê Mix de Felicidade",
+                image: "images/bouquet_happiness.png",
+                description: "O Buquê Mix de Felicidade é uma combinação encantadora de flores que transmite elegância e delicadeza. Cada pétala foi selecionada para criar um arranjo harmonioso que expressa sentimentos puros de carinho e transmite alegria instantânea."
+            },
+            "buque-lirios-rosas": {
+                title: "Buquê Lírios com Rosas",
+                image: "images/bouquet_lilies_roses.png",
+                description: "O Buquê de Lírios com Rosas é uma combinação encantadora de flores que transmite elegância e delicadeza. Este buquê apresenta lírios brancos majestosos, que simbolizam pureza e renovação, complementados por rosas brancas ou creme representando amor puro e inocência. Toques de folhagens verdes adicionam textura e realçam a beleza única das flores. Este buquê é perfeito para presentear em aniversários, celebrações ou como um gesto carinhoso."
+            },
+            "cesta-aniversario": {
+                title: "Cesta de Aniversário",
+                image: "images/birthday_basket.png",
+                description: "A Cesta de Aniversário é um presente encantador para celebrar o dia especial de alguém querido. Ela combina um bouquet de flores coloridas (girassóis, rosas e margaridas) e um balão em formato de coração branco com confetes dourados com votos de felicitações. Tudo isso disposto de forma harmônica em uma cesta de vime que proporciona um toque rústico e muito elegante."
+            },
+            "cesta-luxo-felicidade": {
+                title: "Cesta Luxo Mix de Felicidade",
+                image: "images/luxury_basket_joy.png",
+                description: "A Cesta Luxo Mix de Felicidade é um presente refinado e encantador, perfeito para marcar momentos especiais. Ela combina um bouquet de flores vibrantes (girassóis amarelos, rosas vermelhas e margaridas brancas) com os deliciosos chocolates Ferrero Rocher envoltos em dourado. O conjunto é elegantemente apresentado em uma caixa de fibras naturais com um cartão especial para transmitir afeto de forma única."
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get product ID from URL query string
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get('id');
+
+            // Find product data or default to 'buque-aniversario'
+            const product = products[productId] || products['buque-aniversario'];
+
+            // Update page elements dynamically
+            document.title = `${product.title} | Floricultura Recife`;
+            document.getElementById('product-img').src = product.image;
+            document.getElementById('product-img').alt = product.title;
+            document.getElementById('product-title').textContent = product.title;
+            document.getElementById('product-desc').textContent = product.description;
+
+            // Update WhatsApp buy link with product name
+            const buyBtn = document.getElementById('buy-now-btn');
+            const message = encodeURIComponent(`Olá! Gostaria de comprar o ${product.title}.`);
+            buyBtn.href = `https://wa.me/5581999999999?text=${message}`;
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
