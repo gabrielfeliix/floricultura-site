@@ -607,6 +607,22 @@ img {
 
     .hero-content {
         margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-title {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-text {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-image-wrapper {
@@ -634,12 +650,18 @@ img {
 
     .hero-title {
         font-size: clamp(1.6rem, 7vw, 2.2rem);
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-text {
         font-size: 0.95rem;
         margin-bottom: 2rem;
         max-width: 100%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-image-wrapper {
@@ -1716,11 +1738,17 @@ img {
     .hero-title {
         font-size: clamp(1.4rem, 6.5vw, 1.8rem);
         line-height: 1.15;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-text {
         font-size: 0.9rem;
         max-width: 100%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-image-wrapper {
