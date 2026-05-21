@@ -488,6 +488,7 @@ img {
 
 .hero-content {
     max-width: 500px;
+    min-width: 0; /* Fix CSS Grid overflow: prevent items expanding beyond 1fr */
 }
 
 .hero-subtitle {
@@ -568,10 +569,9 @@ img {
     position: relative;
     height: 80vh;
     width: 100%;
-    /* Soft shadow for depth moved to the wrapper to prevent clipping */
+    min-width: 0; /* Fix CSS Grid overflow */
     box-shadow: -20px 20px 0px var(--clr-bg-secondary);
     max-width: 100%;
-    overflow: hidden;
 }
 
 .hero-image {
@@ -987,6 +987,7 @@ img {
     position: relative;
     z-index: 1;
     overflow: hidden;
+    min-width: 0;
 }
 
 .about-image {
@@ -1010,6 +1011,7 @@ img {
 
 .about-text {
     margin-bottom: 2rem;
+    min-width: 0;
 }
 
 .about-text p {
@@ -1053,6 +1055,7 @@ img {
     gap: 2.5rem;
     margin-top: 3rem;
     align-items: stretch;
+    min-width: 0;
 }
 
 .google-rating-card {
@@ -1390,6 +1393,7 @@ img {
     grid-template-columns: 4.5fr 5.5fr;
     gap: 4rem;
     align-items: center;
+    min-width: 0;
 }
 
 .map-info {
