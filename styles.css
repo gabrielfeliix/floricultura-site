@@ -334,8 +334,8 @@ img {
     }
 
     .logo-img {
-        height: 175px;
-        /* Increased 25% for tablet */
+        height: 192px;
+        /* Increased 25% + 10% for tablet */
     }
 
     .nav-container {
@@ -1782,7 +1782,7 @@ img {
     }
 
     .logo-img {
-        height: 112px;
+        height: 123px;
     }
 
     /* Hero */
