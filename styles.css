@@ -2337,32 +2337,28 @@ img {
    OPTIMIZED IMAGE LOADING (ANTI-JANK / SHIMMER)
    ============================================== */
 
-/* Transitions for image fade & blur-up reveal */
+/* Transitions for image fade reveal */
 .product-image img,
 .hero-image,
 .about-image,
 .product-detail-img {
     opacity: 0;
-    filter: blur(10px);
-    transition: opacity 0.52s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.52s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: opacity, filter;
+    transition: opacity 0.52s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .product-image img.loaded,
 .hero-image.loaded,
 .about-image.loaded {
     opacity: 1;
-    filter: blur(0);
 }
 
 .product-detail-img.loaded {
     opacity: 1;
-    filter: blur(0) brightness(0.97);
 }
 
 /* Ensure brightness transition is smooth on hover for details page */
 .product-detail-image-frame:hover .product-detail-img.loaded {
-    filter: blur(0) brightness(1.02);
+    filter: brightness(1.02);
 }
 
 /* Skeleton Shimmer Backgrounds for Image Containers */
