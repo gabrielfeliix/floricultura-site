@@ -826,7 +826,8 @@ img {
 /* Inner wrapper: clips pages, no padding */
 .products-slider-wrapper {
     overflow: hidden;
-    width: 100%;
+    width: auto;
+    margin: 0 -15px; /* Negative margin to expand viewport and absorb padding */
     flex: 1;
     min-width: 0;
 }
@@ -845,7 +846,7 @@ img {
     grid-template-columns: repeat(3, 1fr);
     /* 3 cards per row on desktop */
     gap: 3rem 2rem;
-    padding: 1rem 0;
+    padding: 1rem 15px; /* 15px invisible buffer zone on sides to prevent sub-pixel bleed */
     /* space so card shadows don't clip */
     box-sizing: border-box;
 }
