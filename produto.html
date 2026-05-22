@@ -18,6 +18,21 @@
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="stylesheet" href="styles.css?v=2.0.0">
+
+    <!--
+        Critical anti-flicker CSS: hides dynamic product elements before JS runs.
+        Without this, the browser paints the hardcoded placeholder values for
+        a brief moment before DOMContentLoaded fires and corrects them.
+    -->
+    <style>
+        #product-img,
+        #product-title,
+        #product-desc,
+        #buy-now-btn {
+            opacity: 0;
+            /* No transition here — added by JS after content is correct */
+        }
+    </style>
 </head>
 
 <body>
@@ -77,7 +92,7 @@
 
                     <div class="product-actions">
                         <a id="buy-now-btn"
-                            href="https://wa.me/5581999999999?text=Olá! Gostaria de comprar o Buquê Aniversário."
+                            href="https://wa.me/5581988325204?text=Olá! Gostaria de comprar o Buquê Aniversário."
                             target="_blank" rel="noopener" class="btn-primary product-buy-btn">
                             Compre Aqui
                         </a>
@@ -159,13 +174,14 @@
                 <div class="footer-links-group" id="contato">
                     <span class="footer-links-title">Contato & Redes</span>
                     <div class="footer-social-pills">
-                        <a href="tel:81999999999" class="footer-contact-pill highlight" aria-label="Telefone">
+                        <a href="https://wa.me/5581988325204" target="_blank" rel="noopener"
+                            class="footer-contact-pill highlight" aria-label="WhatsApp">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path
                                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                             </svg>
-                            <span>(81) 99999-9999</span>
+                            <span>(81) 98832-5204</span>
                         </a>
                         <a href="https://www.instagram.com/floriculturarecife" target="_blank" rel="noopener"
                             class="footer-contact-pill" aria-label="Instagram">
@@ -197,110 +213,161 @@
         </div>
     </footer>
 
-    <!-- Dynamic Loader Script -->
+    <!-- Dynamic Product Loader Script -->
     <script>
         const products = {
             "buque-aniversario": {
                 title: "Buquê Aniversário",
                 image: "images/bouquet_anniversary.png",
+                catalogUrl: "https://wa.me/p/10035827223172848/558188325204",
                 description: "O Buquê Aniversário é um presente encantador para celebrar o dia especial de alguém querido. Este buquê apresenta rosas vermelhas, densamente arranjadas e envoltas em um tecido de malha de cor clara, possivelmente branco ou creme. As rosas exibem pétalas frescas e vibrantes, com um gradiente de vermelho intenso e folhas verdes entre as flores. A elegante apresentação inclui uma fita rosada que arremata este belo arranjo com sofisticação."
             },
             "buque-romantico": {
                 title: "Buquê Romântico",
                 image: "images/bouquet_joy.png",
+                catalogUrl: "https://wa.me/p/24422990980720679/147914462642301",
                 description: "Uma combinação delicada de flores selecionadas para transformar sentimentos em gestos inesquecíveis. Com cores harmoniosas e acabamento elegante, o Buquê Romântico é perfeito para surpreender em momentos especiais, celebrar o amor ou simplesmente demonstrar carinho com sofisticação."
             },
             "buque-mix-felicidade": {
                 title: "Buquê Mix de Felicidade",
                 image: "images/bouquet_happiness.png",
+                catalogUrl: "https://wa.me/p/6005308332890141/147914462642301",
                 description: "O Buquê Mix de Felicidade é uma combinação encantadora de flores que transmite elegância e delicadeza. Cada pétala foi selecionada para criar um arranjo harmonioso que expressa sentimentos puros de carinho e transmite alegria instantânea."
             },
             "buque-lirios-rosas": {
                 title: "Buquê Lírios com Rosas",
                 image: "images/bouquet_lilies_roses.png",
+                catalogUrl: "https://wa.me/p/7973633442695787/558188325204",
                 description: "O Buquê de Lírios com Rosas é uma combinação encantadora de flores que transmite elegância e delicadeza. Este buquê apresenta lírios brancos majestosos, que simbolizam pureza e renovação, complementados por rosas brancas ou creme representando amor puro e inocência. Toques de folhagens verdes adicionam textura e realçam a beleza única das flores. Este buquê é perfeito para presentear em aniversários, celebrações ou como um gesto carinhoso."
             },
             "box-sol-da-minha-vida": {
                 title: "Box Sol da Minha Vida",
                 image: "images/birthday_basket.png",
+                catalogUrl: "https://wa.me/p/26218650267730367/147914462642301",
                 description: "Um arranjo encantador com girassóis vibrantes que transmitem alegria, luz e carinho em cada detalhe. A Box Sol da Minha Vida é perfeita para presentear alguém especial com energia positiva, elegância e um toque inesquecível de felicidade."
             },
             "kit-rosas-e-chocolate": {
                 title: "Kit Rosas e Chocolate",
                 image: "images/luxury_basket_joy.png",
+                catalogUrl: "https://wa.me/p/23999065656370949/147914462642301",
                 description: "O Kit Rosas e Chocolate é um presente romântico e sofisticado, ideal para expressar sentimentos especiais. Este kit combina rosas delicadas, símbolos do amor e paixão, com chocolates deliciosos que acrescentam um toque de indulgência e prazer à experiência. O arranjo é cuidadosamente montado para proporcionar uma apresentação elegante, tornando-o perfeito para ocasiões como aniversários, Dia dos Namorados ou momentos que merecem ser celebrados com carinho e requinte."
             },
             "orquideas": {
                 title: "Orquídeas",
                 image: "images/orquideas.png",
+                catalogUrl: "https://wa.me/p/8735303863223983/147914462642301",
                 description: "A Orquídea é uma planta elegante e sofisticada, conhecida por sua beleza delicada e fragrância suave. Este arranjo apresenta orquídeas vibrantes, com pétalas sedosas e cores harmoniosas, dispostas em um vaso que realça sua beleza natural. Perfeita para presentear em ocasiões especiais, a Orquídea transmite elegância, requinte e apreço, tornando-se uma escolha memorável para expressar sentimentos especiais."
             },
             "kit-romance": {
                 title: "Kit Romance",
                 image: "images/kit romance.png",
+                catalogUrl: "https://wa.me/p/24586503801002988/147914462642301",
                 description: "O Kit Romance é um presente romântico e sofisticado, ideal para expressar sentimentos especiais. Este kit combina rosas delicadas, símbolos do amor e paixão, com chocolates deliciosos que acrescentam um toque de indulgência e prazer à experiência. O arranjo é cuidadosamente montado para proporcionar uma apresentação elegante, tornando-o perfeito para ocasiões como aniversários, Dia dos Namorados ou momentos que merecem ser celebrados com carinho e requinte."
             },
             "buque-romance": {
                 title: "Buquê Romance",
                 image: "images/romance.png",
+                catalogUrl: "https://wa.me/p/24081842044828036/147914462642301",
                 description: "Um clássico apaixonante composto por deslumbrantes rosas vermelhas, símbolo eterno do amor e da intensidade dos sentimentos. Com apresentação elegante e sofisticada, o Buquê Romance é perfeito para declarar emoções, surpreender alguém especial e tornar qualquer momento ainda mais inesquecível."
             },
             "mix-especial": {
                 title: "Mix Especial",
                 image: "images/mix especial.png",
+                catalogUrl: "https://wa.me/p/7234993009858540/147914462642301",
                 description: "Uma composição vibrante que une flores coloridas e lírios elegantes em um arranjo cheio de charme e personalidade. O Mix Especial transmite alegria, sofisticação e leveza, sendo a escolha perfeita para presentear em ocasiões especiais ou iluminar qualquer ambiente com beleza natural."
             },
             "kit-especial-te-amo": {
                 title: "Kit Especial Te-amo",
                 image: "images/kit especial te amo.png",
+                catalogUrl: "https://wa.me/p/31396099143370884/147914462642301",
                 description: "Um presente apaixonante que combina a elegância das rosas vermelhas com detalhes cuidadosamente escolhidos para tornar o momento ainda mais especial. O Kit Especial Te Amo transmite carinho, romantismo e sofisticação em uma composição perfeita para surpreender quem faz seu coração florescer."
             },
             "mimo-girassóis": {
                 title: "Mimo Girassóis",
                 image: "images/mimo girassois.png",
+                catalogUrl: "https://wa.me/p/7709494722500878/147914462642301",
                 description: "Delicado e cheio de luz, o Mimo Girassóis encanta com a beleza vibrante dos girassóis em uma composição leve e acolhedora. Um presente perfeito para transmitir alegria, carinho e boas energias em qualquer ocasião especial."
             },
             "cesta-romantica-com-chocolate": {
                 title: "Cesta Romântica com chocolate",
                 image: "images/Cesta Romântica com chocolate.png",
+                catalogUrl: "https://wa.me/p/8611511572297751/147914462642301",
                 description: "A Cesta Romântica com Chocolate foi preparada para transformar momentos especiais em lembranças inesquecíveis. Com uma combinação delicada de itens selecionados, flores encantadoras e chocolates irresistíveis, ela é perfeita para surpreender quem você ama com carinho, elegância e muito romantismo. Ideal para aniversários, datas especiais ou simplesmente para demonstrar amor de uma forma única e marcante."
             },
             "cesta-de-girassóis-com-rosas": {
                 title: "Cesta de Girassóis com rosas",
                 image: "images/Cesta de Girassóis com rosas.png",
+                catalogUrl: "https://wa.me/p/7037970146251526/147914462642301",
                 description: "A Cesta de Girassóis com Rosas combina a alegria vibrante dos girassóis com a delicadeza e o romantismo das rosas, criando um presente encantador e cheio de significado. Montada com muito carinho, essa cesta é perfeita para surpreender em aniversários, comemorações especiais ou para demonstrar afeto de forma elegante e inesquecível. Um presente que transmite luz, amor e felicidade em cada detalhe."
             },
             "cesta-mix-mimo-especial": {
                 title: "Cesta Mix Mimo Especial",
                 image: "images/Cesta Mix mimo especial.png",
+                catalogUrl: "https://wa.me/p/26538264679122360/147914462642301",
                 description: "A Cesta Mix Mimo Especial é uma combinação encantadora de flores selecionadas, cores delicadas e detalhes apaixonantes que tornam qualquer ocasião ainda mais especial. Com uma montagem elegante e cheia de carinho, ela transmite amor, admiração e afeto em cada detalhe. Perfeita para surpreender alguém querido com um presente sofisticado, marcante e inesquecível."
             },
             "buque-conquista": {
                 title: "Buquê Conquista",
                 image: "images/Buquê conquista.png",
+                catalogUrl: "https://wa.me/p/25713797071600221/147914462642301",
                 description: "O Buquê Conquista é a escolha perfeita para surpreender com elegância, romantismo e intensidade. Com lindas rosas vermelhas cuidadosamente selecionadas, ele representa amor, paixão e admiração em cada detalhe. Um presente marcante e sofisticado, ideal para transformar qualquer momento em uma ocasião inesquecível."
             }
         };
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Get product ID from URL query string
             const params = new URLSearchParams(window.location.search);
             const productId = params.get('id');
-
-            // Find product data or default to 'buque-aniversario'
             const product = products[productId] || products['buque-aniversario'];
 
-            // Update page elements dynamically
-            document.title = `${product.title} | Floricultura Recife`;
-            document.getElementById('product-img').src = product.image;
-            document.getElementById('product-img').alt = product.title;
-            document.getElementById('product-title').textContent = product.title;
-            document.getElementById('product-desc').textContent = product.description;
+            const imgEl    = document.getElementById('product-img');
+            const titleEl  = document.getElementById('product-title');
+            const descEl   = document.getElementById('product-desc');
+            const buyBtn   = document.getElementById('buy-now-btn');
 
-            // Update WhatsApp buy link with product name
-            const buyBtn = document.getElementById('buy-now-btn');
-            const message = encodeURIComponent(`Olá! Gostaria de comprar o ${product.title}.`);
-            buyBtn.href = `https://wa.me/5581999999999?text=${message}`;
+            // --- Atomically update all content BEFORE revealing it ---
+            // Clear the src first so the browser doesn't paint the old image
+            // even for a single frame while the new one loads.
+            imgEl.src = '';
+
+            document.title = `${product.title} | Floricultura Recife`;
+            titleEl.textContent  = product.title;
+            descEl.textContent   = product.description;
+
+            const messageText = `Ol\u00E1, Floricultura Recife! \u{1F338}\n\nGostaria de encomendar o produto *${product.title}*.\n\nSegue o link do c\u00E1t\u00E1logo para refer\u00EAncia:\n${product.catalogUrl}`;
+            const message = encodeURIComponent(messageText);
+            buyBtn.href = `https://wa.me/5581988325204?text=${message}`;
+
+            // --- Load the correct image, then reveal everything together ---
+            // This ensures image + text are shown simultaneously with no flicker.
+            const tempImg = new Image();
+            tempImg.onload = function () {
+                imgEl.src = product.image;
+                imgEl.alt = product.title;
+
+                // Use rAF so the browser has painted the correct src before opacity starts
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        const reveal = (el) => {
+                            el.style.transition = 'opacity 0.38s ease';
+                            el.style.opacity    = '1';
+                        };
+                        reveal(imgEl);
+                        reveal(titleEl);
+                        reveal(descEl);
+                        reveal(buyBtn);
+                    });
+                });
+            };
+            tempImg.onerror = function () {
+                // Fallback: show even if image fails to avoid blank page
+                imgEl.src = product.image;
+                imgEl.alt = product.title;
+                [imgEl, titleEl, descEl, buyBtn].forEach(el => {
+                    el.style.transition = 'opacity 0.38s ease';
+                    el.style.opacity    = '1';
+                });
+            };
+            tempImg.src = product.image;
         });
     </script>
     <script src="script.js"></script>

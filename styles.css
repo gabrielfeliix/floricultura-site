@@ -833,8 +833,9 @@ img {
 
 .products-slider-track {
     display: flex;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
+    backface-visibility: hidden;
 }
 
 .slider-page {
@@ -1066,8 +1067,11 @@ img {
 .about-image-wrapper {
     position: relative;
     z-index: 1;
-    overflow: hidden;
     min-width: 0;
+    /* Box-shadow used for green offset square - reliable across all stacking contexts */
+    box-shadow: -1.5rem -1.5rem 0 0 var(--clr-accent);
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
 }
 
 .about-image {
@@ -1076,17 +1080,7 @@ img {
     width: 100%;
     aspect-ratio: 4/5;
     object-fit: cover;
-}
-
-.about-image-wrapper::before {
-    content: '';
-    position: absolute;
-    top: -2rem;
-    left: -2rem;
-    width: 100%;
-    height: 100%;
-    background-color: var(--clr-accent);
-    z-index: 1;
+    display: block;
 }
 
 .about-text {
@@ -1096,30 +1090,7 @@ img {
 
 .about-content {
     position: relative;
-    background-color: var(--clr-bg-secondary);
-    border: 1px solid rgba(212, 175, 55, 0.12);
-    padding: 3rem;
-    border-radius: 4px;
     z-index: 2;
-    transition: border-color 0.4s ease, box-shadow 0.4s ease;
-}
-
-.about-content::before {
-    content: '';
-    position: absolute;
-    top: 1.5rem;
-    left: 1.5rem;
-    width: 100%;
-    height: 100%;
-    background-color: var(--clr-accent);
-    z-index: -1;
-    border-radius: 4px;
-    pointer-events: none;
-}
-
-.about-content:hover {
-    border-color: rgba(212, 175, 55, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .about-text p {
@@ -1136,25 +1107,13 @@ img {
 
     .about-image-wrapper {
         order: 2;
-        padding-left: 1rem;
-        padding-top: 1rem;
-    }
-
-    .about-image-wrapper::before {
-        top: 0;
-        left: 0;
-        width: calc(100% - 1rem);
-        height: calc(100% - 1rem);
+        margin-top: 1rem;
+        margin-left: 1rem;
+        box-shadow: -1rem -1rem 0 0 var(--clr-accent);
     }
 
     .about-content {
         order: 1;
-        padding: 2rem;
-    }
-
-    .about-content::before {
-        top: 1rem;
-        left: 1rem;
     }
 }
 
@@ -1940,15 +1899,9 @@ img {
     }
 
     .about-image-wrapper {
-        padding-left: 0.5rem;
-        padding-top: 0.5rem;
-    }
-
-    .about-image-wrapper::before {
-        width: calc(100% - 0.5rem);
-        height: calc(100% - 0.5rem);
-        top: 0;
-        left: 0;
+        margin-top: 0.75rem;
+        margin-left: 0.75rem;
+        box-shadow: -0.75rem -0.75rem 0 0 var(--clr-accent);
     }
 
     .about-text p {
@@ -1957,11 +1910,11 @@ img {
 
     .about-content {
         padding: 1.5rem;
+        box-shadow: 0.75rem 0.75rem 0 0 var(--clr-accent);
     }
 
-    .about-content::before {
-        top: 0.75rem;
-        left: 0.75rem;
+    .about-content:hover {
+        box-shadow: 0.75rem 0.75rem 0 0 var(--clr-accent), 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     /* Testimonials */
@@ -2219,15 +2172,14 @@ img {
     width: 100%;
     height: 500px;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease;
+    /* Removed heavy transform scale - causes jank. Subtle filter only. */
+    transition: filter 0.35s ease;
     filter: brightness(0.97);
-    will-change: transform, filter;
     backface-visibility: hidden;
 }
 
 .product-detail-image-frame:hover .product-detail-img {
-    transform: scale(1.03);
-    filter: brightness(1.03);
+    filter: brightness(1.02);
 }
 
 .product-detail-info {
@@ -2248,8 +2200,8 @@ img {
 .product-detail-title {
     font-size: clamp(2.2rem, 4.5vw, 3.5rem);
     font-weight: 300;
-    /* Keeping thin weight as requested */
-    color: var(--clr-accent);
+    /* Elegant metallic gold - harmonizes with brand identity */
+    color: var(--clr-primary);
     line-height: 1.1;
     margin-bottom: 0.5rem;
 }
@@ -2310,4 +2262,81 @@ img {
     .product-detail-title {
         font-size: 2.5rem;
     }
+}
+
+/* ==============================================
+   DESKTOP TICKER BAR — Full-width, desktop only
+   ============================================== */
+.desktop-ticker-bar {
+    display: none; /* Hidden on mobile/tablet — ticker lives inside hero-content there */
+    overflow: hidden;
+    width: 100%;
+    background-color: var(--clr-bg-secondary);
+    border-top: 1px solid rgba(212, 175, 55, 0.08);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.08);
+    padding: 0.9rem 0;
+    /* Faster animation on desktop — more content visible at once */
+    --ticker-speed: 40s;
+}
+
+.desktop-ticker-bar .ticker-track {
+    animation-duration: var(--ticker-speed, 40s);
+}
+
+@media (min-width: 993px) {
+    /* Hide the full-width ticker bar that was below the hero */
+    .desktop-ticker-bar {
+        display: none;
+    }
+    /* Show and style the ticker above the title in hero-content on desktop */
+    .hero-container .hero-ticker {
+        grid-column: 1 / -1;
+        width: 100%;
+        display: block;
+        margin: 0 0 2.5rem 0;
+        background: linear-gradient(90deg, rgba(212, 175, 55, 0.02) 0%, rgba(212, 175, 55, 0.07) 50%, rgba(212, 175, 55, 0.02) 100%);
+        border-top: 1px solid rgba(212, 175, 55, 0.22);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+        border-left: none;
+        border-right: none;
+        padding: 0.65rem 0;
+        border-radius: 2px;
+        position: relative;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    }
+    /* Subtle luxury glowing lines */
+    .hero-container .hero-ticker::before,
+    .hero-container .hero-ticker::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--clr-primary-light), transparent);
+    }
+    .hero-container .hero-ticker::before {
+        top: -1px;
+    }
+    .hero-container .hero-ticker::after {
+        bottom: -1px;
+    }
+    .hero-container .hero-ticker .ticker-items span:not(.ticker-dot) {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        letter-spacing: 3px;
+        color: var(--clr-primary-light);
+        text-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+    }
+}
+
+/* ==============================================
+   PERFORMANCE — Product card GPU acceleration
+   ============================================== */
+.product-card {
+    transform: translateZ(0); /* Promote to GPU layer */
+    backface-visibility: hidden;
+}
+
+.slider-page {
+    contain: layout style; /* Limit reflow to the slider page */
 }

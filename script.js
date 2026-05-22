@@ -116,6 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const pages = Array.from(prodTrack.querySelectorAll('.slider-page'));
 
         let currentPage = 0;
+        const savedPage = sessionStorage.getItem('productsSliderPage');
+        if (savedPage !== null) {
+            currentPage = parseInt(savedPage, 10);
+        }
         const totalPages = pages.length;
 
         // Generate pagination dots
@@ -146,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const scrollToPage = (pageIndex) => {
             currentPage = Math.max(0, Math.min(pageIndex, totalPages - 1));
+            sessionStorage.setItem('productsSliderPage', currentPage);
             prodTrack.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
             prodTrack.style.transform = `translate3d(${-currentPage * 100}%, 0, 0)`;
             updateUI();
@@ -168,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initialize UI
         generateDots();
-        scrollToPage(0);
+        scrollToPage(currentPage);
 
         // Resize behavior
         window.addEventListener('resize', () => {
@@ -176,6 +181,67 @@ document.addEventListener('DOMContentLoaded', () => {
             prodTrack.style.transition = 'none';
             prodTrack.style.transform = `translate3d(${-currentPage * 100}%, 0, 0)`;
         });
+
+        // Captura o clique em links de produto para armazenar o ID específico
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a');
+            if (link && link.getAttribute('href') && link.getAttribute('href').includes('produto.html')) {
+                try {
+                    const url = new URL(link.href, window.location.href);
+                    const productId = url.searchParams.get('id');
+                    if (productId) {
+                        sessionStorage.setItem('clickedProductId', productId);
+                    }
+                } catch (err) {
+                    const match = link.getAttribute('href').match(/id=([^&]+)/);
+                    if (match && match[1]) {
+                        sessionStorage.setItem('clickedProductId', match[1]);
+                    }
+                }
+            }
+        });
+
+        // Se estivermos na página de detalhes do produto, armazena automaticamente o ID atual
+        // como garantia adicional para qualquer fluxo de retorno ou navegação
+        if (window.location.pathname.includes('produto.html')) {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const productId = params.get('id');
+                if (productId) {
+                    sessionStorage.setItem('clickedProductId', productId);
+                }
+            } catch (err) {
+                const match = window.location.search.match(/id=([^&]+)/);
+                if (match && match[1]) {
+                    sessionStorage.setItem('clickedProductId', match[1]);
+                }
+            }
+        }
+
+        // Rola suavemente até o card de produto específico se estiver retornando
+        const clickedProductId = sessionStorage.getItem('clickedProductId');
+        if (clickedProductId) {
+            sessionStorage.removeItem('clickedProductId');
+            setTimeout(() => {
+                const targetLink = document.querySelector(`#produtos a[href*="id=${clickedProductId}"]`);
+                if (targetLink) {
+                    const card = targetLink.closest('.product-card');
+                    if (card) {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        const prodSection = document.getElementById('produtos');
+                        if (prodSection) {
+                            prodSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                } else {
+                    const prodSection = document.getElementById('produtos');
+                    if (prodSection) {
+                        prodSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            }, 350); // Tempo ideal para garantir que o carrossel e o layout já estejam estabilizados
+        }
     }
 
     // Mobile Nav Toggle
