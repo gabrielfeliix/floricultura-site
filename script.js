@@ -266,6 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Optimized Image Loading (Anti-Jank / Shimmer parent toggle) ---
     const handleImageLoad = (img) => {
         img.classList.add('loaded');
+        img.removeAttribute('loading'); // Evita que navegadores modernos descarreguem a imagem da memória ao rolar a página
         const parent = img.closest('.product-image, .hero-image-wrapper, .about-image-wrapper, .product-detail-image-frame');
         if (parent) {
             parent.classList.add('loaded-parent');
