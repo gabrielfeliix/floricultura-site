@@ -1908,15 +1908,6 @@ img {
         font-size: 0.95rem;
     }
 
-    .about-content {
-        padding: 1.5rem;
-        box-shadow: 0.75rem 0.75rem 0 0 var(--clr-accent);
-    }
-
-    .about-content:hover {
-        box-shadow: 0.75rem 0.75rem 0 0 var(--clr-accent), 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
-
     /* Testimonials */
     .google-rating-card {
         padding: 1rem 0;
