@@ -334,8 +334,8 @@ img {
     }
 
     .logo-img {
-        height: 140px;
-        /* Larger size on mobile */
+        height: 175px;
+        /* Increased 25% for tablet */
     }
 
     .nav-container {
@@ -1782,7 +1782,7 @@ img {
     }
 
     .logo-img {
-        height: 90px;
+        height: 112px;
     }
 
     /* Hero */
