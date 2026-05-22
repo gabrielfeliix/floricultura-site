@@ -2315,9 +2315,9 @@ img {
     .hero-container .hero-ticker .ticker-items span:not(.ticker-dot) {
         font-family: var(--font-body);
         font-size: 0.8rem;
-        letter-spacing: 3px;
-        color: var(--clr-primary-light);
-        text-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+        letter-spacing: 2px;
+        font-weight: 600;
+        color: var(--clr-primary);
     }
 }
 
