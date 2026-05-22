@@ -290,5 +290,24 @@ document.addEventListener('DOMContentLoaded', () => {
             img.addEventListener('error', () => handleImageLoad(img)); // Reveal on error too to not break layout
         }
     });
+
+    // --- FIX FOR IOS SAFARI BFCache GLITCHES (White button & floating gray boxes) ---
+    // When returning from WhatsApp (or any external link), Safari often restores the page 
+    // from memory with broken compositor layers and stuck :hover states.
+    window.addEventListener('pagehide', () => {
+        // Remove focus to prevent sticky hover states on buttons
+        if (document.activeElement) {
+            document.activeElement.blur();
+        }
+    });
+
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            // Force a complete browser repaint to fix detached layers ("telinha no meio")
+            document.body.style.display = 'none';
+            document.body.offsetHeight; // trigger reflow
+            document.body.style.display = '';
+        }
+    });
 });
 
