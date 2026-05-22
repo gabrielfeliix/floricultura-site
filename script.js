@@ -262,4 +262,32 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- Optimized Image Loading (Anti-Jank / Shimmer parent toggle) ---
+    const handleImageLoad = (img) => {
+        img.classList.add('loaded');
+        const parent = img.closest('.product-image, .hero-image-wrapper, .about-image-wrapper, .product-detail-image-frame');
+        if (parent) {
+            parent.classList.add('loaded-parent');
+        }
+    };
+
+    // Global load capture listener to handle static & dynamic images
+    document.addEventListener('load', (e) => {
+        if (e.target && e.target.tagName === 'IMG') {
+            handleImageLoad(e.target);
+        }
+    }, true);
+
+    // Initial check for already cached/completed images
+    document.querySelectorAll('img').forEach(img => {
+        if (img.complete) {
+            handleImageLoad(img);
+        } else {
+            // Backup listener if capture doesn't fire for some reason
+            img.addEventListener('load', () => handleImageLoad(img));
+            img.addEventListener('error', () => handleImageLoad(img)); // Reveal on error too to not break layout
+        }
+    });
 });
+

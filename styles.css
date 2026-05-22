@@ -2340,3 +2340,69 @@ img {
 .slider-page {
     contain: layout style; /* Limit reflow to the slider page */
 }
+
+/* ==============================================
+   OPTIMIZED IMAGE LOADING (ANTI-JANK / SHIMMER)
+   ============================================== */
+
+/* Transitions for image fade & blur-up reveal */
+.product-image img,
+.hero-image,
+.about-image,
+.product-detail-img {
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 0.52s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.52s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, filter;
+}
+
+.product-image img.loaded,
+.hero-image.loaded,
+.about-image.loaded {
+    opacity: 1;
+    filter: blur(0);
+}
+
+.product-detail-img.loaded {
+    opacity: 1;
+    filter: blur(0) brightness(0.97);
+}
+
+/* Ensure brightness transition is smooth on hover for details page */
+.product-detail-image-frame:hover .product-detail-img.loaded {
+    filter: blur(0) brightness(1.02);
+}
+
+/* Skeleton Shimmer Backgrounds for Image Containers */
+.product-image,
+.hero-image-wrapper,
+.about-image-wrapper,
+.product-detail-image-frame {
+    position: relative;
+    background: linear-gradient(
+        90deg,
+        var(--clr-bg-secondary) 25%,
+        rgba(212, 175, 55, 0.05) 50%,
+        var(--clr-bg-secondary) 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: shimmer-bg 1.6s infinite linear !important;
+}
+
+/* Stop shimmer once loaded */
+.product-image.loaded-parent,
+.hero-image-wrapper.loaded-parent,
+.about-image-wrapper.loaded-parent,
+.product-detail-image-frame.loaded-parent {
+    animation: none !important;
+    background: var(--clr-bg-secondary) !important;
+}
+
+@keyframes shimmer-bg {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
