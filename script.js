@@ -311,3 +311,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Register Service Worker for offline support & offline caching
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker registrado com sucesso!', reg.scope))
+            .catch(err => console.warn('Falha ao registrar o Service Worker:', err));
+    });
+}
+
+
