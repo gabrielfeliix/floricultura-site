@@ -323,19 +323,36 @@ img {
     }
 
     .logo {
-        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 100%;
         margin: 0 auto;
-        background: transparent;
-        border: none;
-        box-shadow: none;
         position: relative;
         z-index: 110;
-        display: inline-flex;
+        gap: 1.5rem;
+    }
+
+    .logo::before {
+        content: '';
+        height: 1px;
+        flex: 1;
+        background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.35));
+        pointer-events: none;
+    }
+
+    .logo::after {
+        content: '';
+        height: 1px;
+        flex: 1;
+        background: linear-gradient(to right, rgba(212, 175, 55, 0.35), transparent);
+        pointer-events: none;
     }
 
     .logo-img {
-        height: 233px;
-        /* Increased 25% + 10% for tablet */
+        height: 180px;
+        /* Optimized for tablet */
     }
 
     .nav-container {
@@ -1785,7 +1802,7 @@ img {
     }
 
     .logo-img {
-        height: 130px;
+        height: 115px;
     }
 
     /* Hero */
