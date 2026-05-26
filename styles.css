@@ -1791,14 +1791,14 @@ img {
 
     .logo {
         margin-left: 1.5rem; /* AJUSTE AQUI: Margem esquerda do logo no Celular/Mobile */
-        width: auto;
+        width: 80%;
         margin-bottom: 0.5rem; /* Margem bottom focada e compacta */
     }
 
     .logo-img {
-        width: auto;
-        height: 110px; /* Reduz levemente o tamanho geral de forma proporcional */
-        object-fit: contain; /* Mantém a proporção exata sem qualquer deformação */
+        width: 100%;
+        height: 120px; /* Estica ainda mais a logo verticalmente */
+        object-fit: fill; /* Deforma/estica a imagem tanto horizontal quanto verticalmente */
     }
 
     /* Hero */
