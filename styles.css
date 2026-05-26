@@ -327,6 +327,7 @@ img {
         align-items: center;
         justify-content: flex-start;
         margin: 0;
+        margin-left: 1.5rem;
         position: relative;
         z-index: 110;
     }
@@ -1780,6 +1781,10 @@ img {
     /* Nav */
     .nav-container {
         padding: 0 4%;
+    }
+
+    .logo {
+        margin-left: 1rem;
     }
 
     .logo-img {
