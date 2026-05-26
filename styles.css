@@ -323,60 +323,26 @@ img {
     }
 
     .logo {
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
+        justify-content: flex-start;
+        margin: 0;
         position: relative;
         z-index: 110;
-        gap: 1.5rem;
-    }
-
-    .logo::before {
-        content: '';
-        height: 1px;
-        flex: 1;
-        background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.35));
-        pointer-events: none;
-    }
-
-    .logo::after {
-        content: '';
-        height: 1px;
-        flex: 1;
-        background: linear-gradient(to right, rgba(212, 175, 55, 0.35), transparent);
-        pointer-events: none;
     }
 
     .logo-img {
         height: 180px;
-        /* Optimized for tablet */
+        /* Balanced and elegant height on tablets when left-aligned */
     }
 
     .nav-container {
         position: relative;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
         padding: 0 5%;
-    }
-
-    /* Decorative golden floral icon to balance the hamburger menu and eliminate the left visual vacuum */
-    .nav-container::before {
-        content: '❀';
-        font-family: var(--font-body);
-        font-size: 1.35rem;
-        color: var(--clr-primary);
-        position: absolute;
-        left: 5%;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 110;
-        pointer-events: none;
-        opacity: 0.85;
     }
 
     /* Remove decorative separator since menu is hidden */
@@ -1817,7 +1783,7 @@ img {
     }
 
     .logo-img {
-        height: 115px;
+        height: 130px;
     }
 
     /* Hero */
