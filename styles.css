@@ -323,24 +323,43 @@ img {
     }
 
     .logo {
-        display: inline-flex;
+        display: flex;
         align-items: center;
-        justify-content: flex-start;
-        margin: 0;
-        margin-left: 2.5rem; /* AJUSTE AQUI: Margem esquerda do logo no Tablet/iPad */
+        justify-content: center;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
         position: relative;
         z-index: 110;
+        gap: 1.5rem;
+    }
+
+    .logo::before {
+        content: '';
+        height: 1px;
+        flex: 1;
+        background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.35));
+        pointer-events: none;
+    }
+
+    .logo::after {
+        content: '';
+        height: 1px;
+        flex: 1;
+        background: linear-gradient(to right, rgba(212, 175, 55, 0.35), transparent);
+        pointer-events: none;
     }
 
     .logo-img {
         height: 180px;
-        /* Balanced and elegant height on tablets when left-aligned */
+        width: auto;
+        object-fit: contain; /* Proporcional e elegante em tablets */
     }
 
     .nav-container {
         position: relative;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         width: 100%;
         padding: 0 5%;
@@ -1790,15 +1809,15 @@ img {
     }
 
     .logo {
-        margin-left: 1.5rem; /* AJUSTE AQUI: Margem esquerda do logo no Celular/Mobile */
-        width: 80%;
+        margin: 0 auto;
         margin-bottom: 0.5rem; /* Margem bottom focada e compacta */
+        width: 100%;
     }
 
     .logo-img {
-        width: 100%;
-        height: 120px; /* Estica ainda mais a logo verticalmente */
-        object-fit: fill; /* Deforma/estica a imagem tanto horizontal quanto verticalmente */
+        width: auto;
+        height: 115px; /* Tamanho geral proporcional perfeito */
+        object-fit: contain; /* Proporcional, sem qualquer deformação */
     }
 
     /* Hero */
