@@ -1792,12 +1792,13 @@ img {
     .logo {
         margin-left: 1.5rem; /* AJUSTE AQUI: Margem esquerda do logo no Celular/Mobile */
         width: 80%;
+        margin-bottom: 1.5rem; /* Foque no bottom da logo */
     }
 
     .logo-img {
         width: 100%;
-        height: 60px; /* Mantém a altura restrita mas deforma horizontalmente */
-        object-fit: fill; /* Deforma/estica a imagem para preencher toda a largura */
+        height: 100px; /* Estica a logo verticalmente */
+        object-fit: fill; /* Deforma/estica a imagem tanto horizontal quanto verticalmente */
     }
 
     /* Hero */
