@@ -327,7 +327,7 @@ img {
         align-items: center;
         justify-content: flex-start;
         margin: 0;
-        margin-left: 3.5rem;
+        margin-left: 2.5rem; /* AJUSTE AQUI: Margem esquerda do logo no Tablet/iPad */
         position: relative;
         z-index: 110;
     }
@@ -828,7 +828,8 @@ img {
 .products-slider-wrapper {
     overflow: hidden;
     width: auto;
-    margin: 0 -15px; /* Negative margin to expand viewport and absorb padding */
+    margin: 0 -15px;
+    /* Negative margin to expand viewport and absorb padding */
     flex: 1;
     min-width: 0;
 }
@@ -847,7 +848,8 @@ img {
     grid-template-columns: repeat(3, 1fr);
     /* 3 cards per row on desktop */
     gap: 3rem 2rem;
-    padding: 1rem 15px; /* 15px invisible buffer zone on sides to prevent sub-pixel bleed */
+    padding: 1rem 15px;
+    /* 15px invisible buffer zone on sides to prevent sub-pixel bleed */
     /* space so card shadows don't clip */
     box-sizing: border-box;
 }
@@ -1784,7 +1786,7 @@ img {
     }
 
     .logo {
-        margin-left: 3rem;
+        margin-left: 1.5rem; /* AJUSTE AQUI: Margem esquerda do logo no Celular/Mobile */
     }
 
     .logo-img {
@@ -2265,7 +2267,8 @@ img {
    DESKTOP TICKER BAR — Full-width, desktop only
    ============================================== */
 .desktop-ticker-bar {
-    display: none; /* Hidden on mobile/tablet — ticker lives inside hero-content there */
+    display: none;
+    /* Hidden on mobile/tablet — ticker lives inside hero-content there */
     overflow: hidden;
     width: 100%;
     background-color: var(--clr-bg-secondary);
@@ -2281,10 +2284,12 @@ img {
 }
 
 @media (min-width: 993px) {
+
     /* Hide the full-width ticker bar that was below the hero */
     .desktop-ticker-bar {
         display: none;
     }
+
     /* Show and style the ticker above the title in hero-content on desktop */
     .hero-container .hero-ticker {
         grid-column: 1 / -1;
@@ -2301,6 +2306,7 @@ img {
         position: relative;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
     }
+
     /* Subtle luxury glowing lines */
     .hero-container .hero-ticker::before,
     .hero-container .hero-ticker::after {
@@ -2311,12 +2317,15 @@ img {
         height: 1px;
         background: linear-gradient(90deg, transparent, var(--clr-primary-light), transparent);
     }
+
     .hero-container .hero-ticker::before {
         top: -1px;
     }
+
     .hero-container .hero-ticker::after {
         bottom: -1px;
     }
+
     .hero-container .hero-ticker .ticker-items span:not(.ticker-dot) {
         font-family: var(--font-body);
         font-size: 0.8rem;
@@ -2330,12 +2339,14 @@ img {
    PERFORMANCE — Product card GPU acceleration
    ============================================== */
 .product-card {
-    transform: translateZ(0); /* Promote to GPU layer */
+    transform: translateZ(0);
+    /* Promote to GPU layer */
     backface-visibility: hidden;
 }
 
 .slider-page {
-    contain: layout style; /* Limit reflow to the slider page */
+    contain: layout style;
+    /* Limit reflow to the slider page */
 }
 
 /* ==============================================
@@ -2372,12 +2383,10 @@ img {
 .about-image-wrapper,
 .product-detail-image-frame {
     position: relative;
-    background: linear-gradient(
-        90deg,
-        var(--clr-bg-secondary) 25%,
-        rgba(212, 175, 55, 0.05) 50%,
-        var(--clr-bg-secondary) 75%
-    ) !important;
+    background: linear-gradient(90deg,
+            var(--clr-bg-secondary) 25%,
+            rgba(212, 175, 55, 0.05) 50%,
+            var(--clr-bg-secondary) 75%) !important;
     background-size: 200% 100% !important;
     animation: shimmer-bg 1.6s infinite linear !important;
 }
@@ -2395,7 +2404,8 @@ img {
     0% {
         background-position: -200% 0;
     }
+
     100% {
         background-position: 200% 0;
     }
-}
+}
