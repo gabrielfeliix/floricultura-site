@@ -1781,6 +1781,10 @@ img {
     }
 
     /* Nav */
+    .navbar {
+        padding-bottom: 1.5rem; /* Aumenta o espaçamento abaixo da logo no mobile */
+    }
+
     .nav-container {
         padding: 0 4%;
     }
