@@ -364,6 +364,21 @@ img {
         padding: 0 5%;
     }
 
+    /* Decorative golden floral icon to balance the hamburger menu and eliminate the left visual vacuum */
+    .nav-container::before {
+        content: '❀';
+        font-family: var(--font-body);
+        font-size: 1.35rem;
+        color: var(--clr-primary);
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 110;
+        pointer-events: none;
+        opacity: 0.85;
+    }
+
     /* Remove decorative separator since menu is hidden */
     .nav-container::after {
         display: none;
