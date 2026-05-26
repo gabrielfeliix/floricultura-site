@@ -327,7 +327,7 @@ img {
         align-items: center;
         justify-content: flex-start;
         margin: 0;
-        margin-left: 2.5rem;
+        margin-left: 3.5rem;
         position: relative;
         z-index: 110;
     }
@@ -1784,7 +1784,7 @@ img {
     }
 
     .logo {
-        margin-left: 2rem;
+        margin-left: 3rem;
     }
 
     .logo-img {
