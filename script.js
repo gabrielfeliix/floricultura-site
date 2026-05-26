@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Rola suavemente até o card de produto específico se estiver retornando
+        // Rola até o card de produto específico se estiver retornando de forma instantânea para evitar dupla rolagem
         const clickedProductId = sessionStorage.getItem('clickedProductId');
         if (clickedProductId) {
             sessionStorage.removeItem('clickedProductId');
@@ -227,20 +227,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (targetLink) {
                     const card = targetLink.closest('.product-card');
                     if (card) {
-                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        card.scrollIntoView({ behavior: 'auto', block: 'center' });
                     } else {
                         const prodSection = document.getElementById('produtos');
                         if (prodSection) {
-                            prodSection.scrollIntoView({ behavior: 'smooth' });
+                            prodSection.scrollIntoView({ behavior: 'auto' });
                         }
                     }
                 } else {
                     const prodSection = document.getElementById('produtos');
                     if (prodSection) {
-                        prodSection.scrollIntoView({ behavior: 'smooth' });
+                        prodSection.scrollIntoView({ behavior: 'auto' });
                     }
                 }
-            }, 350); // Tempo ideal para garantir que o carrossel e o layout já estejam estabilizados
+            }, 100); // Executa rapidamente para evitar sensações de travamento ou rolagens secundárias
         }
     }
 
