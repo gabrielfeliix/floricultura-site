@@ -1,4 +1,4 @@
-const CACHE_NAME = 'floricultura-recife-v4';
+const CACHE_NAME = 'floricultura-recife-v5';
 
 // Assets to cache immediately on installation
 const PRECACHE_ASSETS = [

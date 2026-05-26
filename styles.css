@@ -270,7 +270,7 @@ img {
 }
 
 .logo-img {
-    height: 140px;
+    height: 170px;
     /* Balanced, elegant size for premium aesthetic and good visual hierarchy */
     width: auto;
     object-fit: contain;
@@ -334,7 +334,7 @@ img {
     }
 
     .logo-img {
-        height: 192px;
+        height: 233px;
         /* Increased 25% + 10% for tablet */
     }
 
@@ -1783,7 +1783,7 @@ img {
     }
 
     .logo-img {
-        height: 123px;
+        height: 149px;
     }
 
     /* Hero */
