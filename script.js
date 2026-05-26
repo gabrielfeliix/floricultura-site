@@ -218,10 +218,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Rola até o card de produto específico se estiver retornando de forma instantânea para evitar dupla rolagem
+        // Rola de forma instantânea até o card do produto ao retornar para evitar qualquer animação de rolagem
         const clickedProductId = sessionStorage.getItem('clickedProductId');
         if (clickedProductId) {
             sessionStorage.removeItem('clickedProductId');
+            
+            // Desativa temporariamente a rolagem suave do documento para garantir um salto instantâneo e sem animações
+            const htmlEl = document.documentElement;
+            htmlEl.style.scrollBehavior = 'auto';
+
             setTimeout(() => {
                 const targetLink = document.querySelector(`#produtos a[href*="id=${clickedProductId}"]`);
                 if (targetLink) {
@@ -240,7 +245,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         prodSection.scrollIntoView({ behavior: 'auto' });
                     }
                 }
-            }, 100); // Executa rapidamente para evitar sensações de travamento ou rolagens secundárias
+                
+                // Restaura o comportamento de rolagem suave padrão para as navegações internas da página
+                setTimeout(() => {
+                    htmlEl.style.scrollBehavior = '';
+                }, 50);
+            }, 50);
         }
     }
 
