@@ -270,7 +270,7 @@ img {
 }
 
 .logo-img {
-    height: 170px;
+    height: 140px;
     /* Balanced, elegant size for premium aesthetic and good visual hierarchy */
     width: auto;
     object-fit: contain;
@@ -325,41 +325,25 @@ img {
     .logo {
         display: flex;
         align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
+        justify-content: flex-start;
+        width: auto;
+        margin: 0;
+        margin-left: 3.5rem; /* Desloca a logo inteira um pouco para a direita */
         position: relative;
         z-index: 110;
-        gap: 1.5rem;
-    }
-
-    .logo::before {
-        content: '';
-        height: 1px;
-        flex: 1;
-        background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.35));
-        pointer-events: none;
-    }
-
-    .logo::after {
-        content: '';
-        height: 1px;
-        flex: 1;
-        background: linear-gradient(to right, rgba(212, 175, 55, 0.35), transparent);
-        pointer-events: none;
     }
 
     .logo-img {
-        height: 180px;
-        width: auto;
-        object-fit: contain; /* Proporcional e elegante em tablets */
+        width: calc(100vw - 140px);
+        max-width: 410px; /* Estica mais horizontalmente */
+        height: 135px; /* Aumentado ligeiramente */
+        object-fit: fill; /* Estica a logo horizontalmente e verticalmente */
     }
 
     .nav-container {
         position: relative;
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         width: 100%;
         padding: 0 5%;
@@ -1809,15 +1793,16 @@ img {
     }
 
     .logo {
-        margin: 0 auto;
-        margin-bottom: 0.5rem; /* Margem bottom focada e compacta */
-        width: 100%;
+        margin: 0;
+        margin-left: 2.6rem; /* Desloca a logo inteira um pouco para a direita no mobile */
+        width: auto;
     }
 
     .logo-img {
-        width: auto;
-        height: 115px; /* Tamanho geral proporcional perfeito */
-        object-fit: contain; /* Proporcional, sem qualquer deformação */
+        width: calc(100vw - 100px);
+        max-width: 315px; /* Estica mais horizontalmente no mobile */
+        height: 118px; /* Aumentado ligeiramente */
+        object-fit: fill; /* Estica a logo horizontalmente e verticalmente */
     }
 
     /* Hero */
