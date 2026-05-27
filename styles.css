@@ -337,7 +337,7 @@ img {
     .logo-img {
         width: 100%;
         max-width: 410px; /* Estica horizontalmente mantendo o tamanho */
-        height: 135px; /* Altura mantida */
+        height: 148px; /* Altura aumentada ligeiramente */
         object-fit: fill; /* Estica a logo horizontalmente e verticalmente */
     }
 
@@ -1803,7 +1803,7 @@ img {
     .logo-img {
         width: 100%;
         max-width: 315px; /* Estica horizontalmente mantendo o tamanho */
-        height: 118px; /* Altura mantida */
+        height: 128px; /* Altura aumentada ligeiramente */
         object-fit: fill; /* Estica a logo horizontalmente e verticalmente */
     }
 
