@@ -329,7 +329,7 @@ img {
         width: 100%;
         max-width: 100%;
         margin: 0 auto;
-        transform: translateX(-20px); /* Desloca ligeiramente para a esquerda */
+        transform: translateX(-35px); /* Desloca ligeiramente para a esquerda */
         position: relative;
         z-index: 110;
     }
@@ -1797,7 +1797,7 @@ img {
         margin: 0 auto;
         margin-bottom: 0.5rem; /* Margem bottom focada e compacta */
         width: 100%;
-        transform: translateX(-15px); /* Desloca ligeiramente para a esquerda no mobile */
+        transform: translateX(-28px); /* Desloca ligeiramente para a esquerda no mobile */
     }
 
     .logo-img {
